@@ -1,0 +1,79 @@
+%rubber: module pdflatex
+%rubber: setlist arguments --shell-escape --enable-write18
+
+\documentclass[11pt,a4paper]{article}
+\usepackage{microtype}\usepackage{mathptmx}
+\usepackage{sdp_doc} % SDP style file
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage[colorlinks,
+  linkcolor={red!50!black},
+  citecolor={green!50!black},
+  urlcolor={blue!50!black}]{hyperref}
+\usepackage[refpage]{nomencl}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\usepackage{amssymb,amsmath} % for the math symbols
+
+\pgfplotsset{compat=1.14}
+
+\newcommand{\bigdoctitle}{Example Title\xspace}
+\newcommand{\docnr}{SDP Memo XXX\xspace}
+\newcommand{\doctype}{MEMO}
+\newcommand{\revision}{1\xspace}
+\newcommand{\docauthor}{John Doe\xspace}
+\newcommand{\footerauthor}{\docauthor}
+\newcommand{\docudate}{XXXX-XX-XX\xspace}
+\newcommand{\classification}{Unrestricted}
+\newcommand{\docstatus}{Draft\xspace}
+
+\newcommand{\leadauthorname}{\docauthor}
+\newcommand{\leadauthordesignation}{}
+\newcommand{\leadauthoraffiliation}{}
+
+% Only used for non-memos
+\newcommand{\ownername}{}
+\newcommand{\ownerdesignation}{}
+\newcommand{\owneraffiliation}{}
+\newcommand{\approvername}{}
+\newcommand{\approverdesignation}{}
+\newcommand{\approveraffiliation}{}
+\newcommand{\releasername}{}
+\newcommand{\releaserdesignation}{}
+\newcommand{\releaseraffiliation}{}
+
+% Table with version numbers
+\newcommand{\versiontable}{
+  \renewcommand{\arraystretch}{1.5}
+  \begin{tabularx}{\textwidth}{|>{\hsize=1.5cm}X|>{\hsize=2.5cm}X|>{\hsize=3cm}X|X|}
+    \hline
+    \bf{Revision} & {\bf Date of issue} & {\bf Prepared by} & {\bf Comments}\\
+    \hline
+    1 & XXXX-XX-XX & \leadauthorname & First draft\\ \hline
+  \end{tabularx}
+}
+
+\begin{document}
+
+% load automatic pages
+\sdpfrontpage
+
+\sdptableofcontents
+
+\section{Introduction}
+
+... write something! \citep{dewdney2009square}
+
+\section{Conclusion}
+
+\appendix
+
+\addcontentsline{toc}{section}{References}
+
+\sdplistoffigures
+\sdplistoftables
+\bibliography{ska}{}
+
+\end{document}
